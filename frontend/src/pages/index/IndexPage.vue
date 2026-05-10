@@ -328,30 +328,29 @@ async function openConfig() {
 
 <style scoped>
 .index-page {
-  --bg-page: #e6e8ec;
-  --bg-card: #ffffff;
-
+  /* --- 新增：全局自定义背景图 --- */
+  background-image: url('这里替换成你的图片链接.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+  background-color: transparent !important;
   min-height: 100vh;
-  background: var(--bg-page);
 }
 
-.index-page.is-dark {
-  --bg-page: #0a1222;
-  --bg-card: #151f31;
-}
-
+/* 覆盖暗黑模式的纯色背景，防止切换主题导致壁纸失效 */
+.index-page.is-dark,
 .index-page.is-dark.is-ultra {
-  --bg-page: #050505;
-  --bg-card: #0c0e12;
+  background-image: url('https://img.shiyeo.art/%E5%9B%BE%E7%89%87/e7f8f0c3ed6eacaad0004ef19d7efab6.png') !important;
+  background-color: transparent !important;
 }
 
 .index-page :deep(.ant-layout),
 .index-page :deep(.ant-layout-content) {
-  background: transparent;
+  background: transparent !important;
 }
 
 .content-shell {
-  background: transparent;
+  background: transparent !important;
 }
 
 .content-area {
@@ -416,5 +415,57 @@ async function openConfig() {
 
 .ip-visible :deep(.ant-statistic-content-value) {
   filter: none;
+}
+</style>
+
+<style>
+/* 侧边栏：透明磨砂 */
+.ant-layout-sider {
+  background: rgba(20, 20, 20, 0.4) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 侧边栏菜单底色 */
+.ant-menu {
+  background: transparent !important;
+}
+.ant-menu-item-selected {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* 数据卡片：透明磨砂 */
+.ant-card {
+  background: rgba(20, 20, 20, 0.4) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 卡片头部 */
+.ant-card-head {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.9) !important; /* 标题变白 */
+}
+
+/* 强制文字变亮，防止背景吞字 */
+.ant-card-body,
+.ant-statistic-title,
+.ant-statistic-content,
+.ant-menu-item,
+.ant-menu-submenu-title {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* 按钮栏透明 */
+.ant-card-actions {
+  background: transparent !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+.ant-card-actions > li {
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 </style>
