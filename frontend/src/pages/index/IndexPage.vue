@@ -340,7 +340,7 @@ async function openConfig() {
 /* 覆盖暗黑模式的纯色背景，防止切换主题导致壁纸失效 */
 .index-page.is-dark,
 .index-page.is-dark.is-ultra {
-  background-image: url('https://img.shiyeo.art/%E5%9B%BE%E7%89%87/e7f8f0c3ed6eacaad0004ef19d7efab6.png') !important;
+  background-image: url('这里替换成你的图片链接.jpg') !important;
   background-color: transparent !important;
 }
 
@@ -419,43 +419,15 @@ async function openConfig() {
 </style>
 
 <style>
-/* 1. 全局页面背景 (兜底其他页面) */
-body, 
-.ant-layout, 
-.ant-layout-content,
-#app {
-  background-image: url('https://img.shiyeo.art/%E5%9B%BE%E7%89%87/e7f8f0c3ed6eacaad0004ef19d7efab6.png') !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-attachment: fixed !important;
-  background-color: transparent !important;
-}
-
-/* 2. 侧边栏与数据卡片：透明磨砂 */
-.ant-layout-sider,
-.ant-card {
+/* 侧边栏：透明磨砂 */
+.ant-layout-sider {
   background: rgba(20, 20, 20, 0.4) !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
-/* 3. 卡片头部和通用文字亮色处理 */
-.ant-card-head {
-  background: transparent !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-.ant-card-head-title,
-.ant-typography,
-.ant-statistic-title,
-.ant-statistic-content,
-.ant-menu-item,
-.ant-menu-submenu-title,
-.ant-form-item-label > label {
-  color: rgba(255, 255, 255, 0.9) !important;
-}
-
-/* 4. 侧边栏菜单激活底色 */
+/* 侧边栏菜单底色 */
 .ant-menu {
   background: transparent !important;
 }
@@ -463,59 +435,37 @@ body,
   background: rgba(255, 255, 255, 0.15) !important;
 }
 
-/* ================= 新增：其他页面的组件透明化 ================= */
-
-/* 5. 针对“入站列表”、“节点”页面的表格 (Table) */
-.ant-table, 
-.ant-table-wrapper, 
-.ant-table-container {
-  background: transparent !important;
-}
-.ant-table-thead > tr > th {
-  background: rgba(0, 0, 0, 0.5) !important; /* 表头深色半透明 */
-  color: #ffffff !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-}
-.ant-table-tbody > tr > td {
-  background: rgba(20, 20, 20, 0.4) !important; /* 表格行半透明 */
-  color: rgba(255, 255, 255, 0.85) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-}
-.ant-table-tbody > tr:hover > td {
-  background: rgba(255, 255, 255, 0.15) !important; /* 鼠标悬停表格行发亮 */
-}
-.ant-table-expanded-row-fixed {
-  background: transparent !important;
-}
-
-/* 6. 针对弹窗、抽屉 (Modal / Drawer) - 点击设置或修改时弹出的窗口 */
-.ant-modal-content, 
-.ant-drawer-content {
-  background: rgba(20, 20, 20, 0.6) !important;
-  backdrop-filter: blur(15px) !important;
-  -webkit-backdrop-filter: blur(15px) !important;
+/* 数据卡片：透明磨砂 */
+.ant-card {
+  background: rgba(20, 20, 20, 0.4) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
 }
-.ant-modal-header, 
-.ant-drawer-header {
+
+/* 卡片头部 */
+.ant-card-head {
   background: transparent !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-.ant-modal-title, 
-.ant-drawer-title {
-  color: #ffffff !important;
+  color: rgba(255, 255, 255, 0.9) !important; /* 标题变白 */
 }
 
-/* 7. 输入框和下拉选择框 (Input / Select) */
-.ant-input, 
-.ant-input-password, 
-.ant-select-selector {
-  background: rgba(0, 0, 0, 0.3) !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+/* 强制文字变亮，防止背景吞字 */
+.ant-card-body,
+.ant-statistic-title,
+.ant-statistic-content,
+.ant-menu-item,
+.ant-menu-submenu-title {
+  color: rgba(255, 255, 255, 0.85) !important;
 }
-.ant-input::placeholder,
-.ant-select-selection-placeholder {
-  color: rgba(255, 255, 255, 0.4) !important;
+
+/* 按钮栏透明 */
+.ant-card-actions {
+  background: transparent !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+.ant-card-actions > li {
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 </style>
