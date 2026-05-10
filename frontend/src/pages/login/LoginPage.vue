@@ -183,42 +183,60 @@ function onLangChange(next) {
   --wave-fill-bottom: #c7ebe2;
 
   min-height: 100vh;
+  
+  /* --- 新增：全局自定义背景图 --- */
+  background-image: url('这里替换成你的图片链接.jpg'); /* 填入图片链接 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-.login-app.is-dark {
-  --bg-page: #222d42;
-  --bg-wave-header: #0a1222;
-  --bg-card: #151f31;
-  --color-title: rgba(255, 255, 255, 0.92);
-  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.45);
-  --wave-fill: #222d42;
-  --wave-fill-bottom: #222d42;
-}
-
+/* 覆盖暗黑模式，确保无论什么主题都显示你的壁纸 */
+.login-app.is-dark,
 .login-app.is-dark.is-ultra {
-  --bg-page: #0f2d32;
-  --bg-wave-header: #0a2227;
-  --bg-card: #0c0e12;
-  --wave-fill: #1f4d52;
-  --wave-fill-bottom: #0f2d32;
+  background-image: url('https://img.shiyeo.art/%E5%9B%BE%E7%89%87/e7f8f0c3ed6eacaad0004ef19d7efab6.png'); /* 保持一致 */
 }
 
 .login-app,
 .login-app :deep(.ant-layout-content) {
-  background: transparent;
+  background-color: transparent !important;
 }
 
-.login-app {
-  background: var(--bg-page);
+/* 隐藏原本的波浪背景，防止遮挡壁纸 */
+.waves-header {
+  display: none;
+  position: fixed;
+  inset: 0 0 auto 0;
+  width: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--bg-wave-header);
 }
 
 .login-card {
-  background: var(--bg-card);
-  box-shadow: var(--shadow-card);
+  width: clamp(280px, 90vw, 300px);
+  border-radius: 2rem;
+  padding: clamp(2rem, 5vw, 4rem) 1.5rem;
+  transition: background 0.3s, box-shadow 0.3s;
+  
+  /* --- 修改：透明磨砂玻璃卡片 --- */
+  background: rgba(20, 20, 20, 0.4) !important; /* 背景颜色与透明度 */
+  backdrop-filter: blur(12px); /* 磨砂模糊程度 */
+  -webkit-backdrop-filter: blur(12px); /* 兼容 Safari */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* 边缘高光线 */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5) !important; /* 卡片阴影 */
 }
 
 .login-title {
-  color: var(--color-title);
+  /* --- 修改：标题文字颜色及阴影，防止被壁纸吞没 --- */
+  color: #ffffff !important; 
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6); 
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 2rem;
+  font-weight: 500;
+  min-height: 2.5rem;
 }
 
 .login-settings {
@@ -246,24 +264,9 @@ function onLangChange(next) {
   padding: 24px 0;
 }
 
-.login-card {
-  width: clamp(280px, 90vw, 300px);
-  border-radius: 2rem;
-  padding: clamp(2rem, 5vw, 4rem) 1.5rem;
-  transition: background 0.3s, box-shadow 0.3s;
-}
-
 .login-loading {
   text-align: center;
   padding: 40px 0;
-}
-
-.login-title {
-  text-align: center;
-  margin-bottom: 32px;
-  font-size: 2rem;
-  font-weight: 500;
-  min-height: 2.5rem;
 }
 
 .login-title b {
@@ -285,15 +288,7 @@ function onLangChange(next) {
   transform: translateY(12px);
 }
 
-.waves-header {
-  position: fixed;
-  inset: 0 0 auto 0;
-  width: 100%;
-  z-index: 0;
-  pointer-events: none;
-  background: var(--bg-wave-header);
-}
-
+/* 下面保留原有的波浪动画CSS以防后续你需要恢复，但上面已通过 display: none 隐藏 */
 .waves-inner-header {
   height: 50vh;
   width: 100%;
